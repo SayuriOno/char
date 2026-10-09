@@ -92,7 +92,70 @@ char idadeTexto[ ] = "45"; // 52,53, /0
 int idade = atoi(idadeTexto);
 Serial.println(idade);
 
+//!
 
+String nome = "thiago";
+String curso = "arduino";
+String mensagem= "ola";
+
+//! concatenado string
+
+mensagem=mensagem + "," + nome + "bem vindo ao curso de" + curso + ".";
+Serial.println(mensagem);
+
+//! tamanho do string 
+int tamanhoMensagem = mensagem.length();
+Serial.print("tamanho da string em letras:  ");
+Serial.print( tamanhoMensagem);
+
+//! acessando caractere em uma posicao especifica
+
+char primeiraLetra = mensagem.charAt(0);
+Serial.println("primeira Letra: ");
+Serial.println(primeiraLetra);
+
+//! ao inves de charAt, eh possivel acessar um colchetes 
+char segundaLetra = mensagem[1];
+Serial.println(segundaLetra);
+
+
+//! procurando um texto dentro da string
+
+int posicaoTextoProcurado = mensagem.indexOF(curso);
+Serial.println(posicaoTextoProcurado);
+
+//! extraindo um texto dentro a string 
+int inicioNomeCurso = posicaoTextoProcurado + 9; //pocicao da palavra curso + 9 caracteres 
+Serial.println(mensagem.substring(inicioNomeCurso, tamanhoMensagem));
+
+//! substituindo texto dentro da string
+mensagem.replace("Ola," , "oi tudo bom?")
+Serial.println(mensagem);
+
+//! convertendo para maiuscula
+mensagem.toUpperCase();
+Serial.println(mensagem);
+
+//! convertendo tudo para minusculo
+mensagem.toLowerCase();
+Serial.println(mensagem);
+
+//! convertendo texto numerico para inteiro
+String textoNumero= "123";
+int numero = textoNumero.toInt();
+Serial.println(numero * 2);
+
+
+//! verificando se a string esta vazia
+String textovazio = " ";
+if (textovazio.length()==0)
+{Serial.println("o texto esta vazio");}
+
+
+
+//! convertendo string para const char
+//! isso eh util quando alguma biblioteca espera texto estilo C
+const char* textoComoChar = mensagem.c_str();
 
 }
 void textoString()
